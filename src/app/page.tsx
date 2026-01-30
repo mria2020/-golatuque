@@ -19,7 +19,7 @@ export default function Home() {
                 "@type": "LocalBusiness",
                 "name": "golatuque",
                 "telephone": "+15146775200",
-                "url": "https://golatuque.com", // Placeholder domain
+                "url": "https://golatuque-demo.vercel.app",
                 "address": {
                   "@type": "PostalAddress",
                   "addressLocality": "La Tuque",
