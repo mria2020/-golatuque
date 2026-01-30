@@ -1,0 +1,273 @@
+.calculatorCard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resetBtn {
+    background: transparent;
+    border: none;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.resetBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--foreground);
+}
+
+.badge {
+    background: rgba(29, 185, 84, 0.1);
+    color: var(--primary);
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 99px;
+    font-weight: 600;
+    border: 1px solid rgba(29, 185, 84, 0.2);
+}
+
+.chips {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.chip {
+    background: var(--secondary);
+    border: 1px solid var(--border);
+    color: var(--muted-foreground);
+    padding: 4px 10px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chip:hover {
+    background: var(--border);
+    color: var(--foreground);
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.inputGroup {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    position: absolute;
+    left: 12px;
+    color: var(--muted-foreground);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 40px 12px 40px;
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--foreground);
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2);
+}
+
+
+.clearBtn {
+    position: absolute;
+    right: 36px;
+    background: none;
+    border: none;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.clearBtn:hover {
+    color: var(--foreground);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.geoBtn {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.geoBtn:hover {
+    background: rgba(29, 185, 84, 0.1);
+}
+
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0 0 var(--radius) var(--radius);
+    list-style: none;
+    z-index: 50;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.suggestions li {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+}
+
+.suggestions li:hover {
+    background: var(--secondary);
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.select {
+    width: 100%;
+    padding: 10px;
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--foreground);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.error {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius);
+    color: #ef4444;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.result {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: linear-gradient(180deg, rgba(29, 185, 84, 0.1), transparent);
+    border-radius: var(--radius);
+    border: 1px solid rgba(29, 185, 84, 0.2);
+}
+
+.resultDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.kpi span {
+    font-size: 0.7rem;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+}
+
+.kpi strong {
+    font-size: 1.1rem;
+    color: var(--foreground);
+}
+
+.priceKpi strong {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.disclaimer {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.7rem;
+    color: var(--muted-foreground);
+    text-align: center;
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

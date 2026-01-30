@@ -1,0 +1,98 @@
+.stickyBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background);
+    border-top: 1px solid var(--border);
+    z-index: 100;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 600px;
+    /* Constrain width on tablets/desktop */
+    margin: 0 auto;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.item:active {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.item.primary {
+    color: var(--primary);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* Hide on very large screens if desired, but request says "Universal" so we keep it or adapt it */
+@media (min-width: 1024px) {
+    .stickyBar {
+        display: none;
+        /* Often on desktop sticky bars are annoying, let's hide it and rely on sticky header CTA? */
+        /* Wait, request says "Toujours visible, tous écrans". I must respect that. */
+        display: block;
+        left: auto;
+        right: 20px;
+        bottom: 20px;
+        width: auto;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding-bottom: 0;
+        overflow: hidden;
+    }
+
+    .container {
+        display: flex;
+        gap: 0;
+    }
+
+    .item {
+        flex-direction: row;
+        padding: 12px 20px;
+        gap: 8px;
+        font-size: 1rem;
+        border-left: 1px solid var(--border);
+    }
+
+    .item:first-child {
+        border-left: none;
+    }
+
+    .icon {
+        margin-bottom: 0;
+        width: 20px;
+        height: 20px;
+    }
+
+    .label {
+        font-size: 0.9rem;
+    }
+}
