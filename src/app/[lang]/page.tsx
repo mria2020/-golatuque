@@ -1,11 +1,17 @@
 import Link from "next/link";
 import { Phone, MapPin, Clock, ShieldCheck, Car, Package, Menu, CheckCircle, Smartphone, Map, CreditCard } from "lucide-react";
-import styles from "./page.module.css";
-import Calculator from "../components/Calculator";
-import StickyBar from "../components/StickyBar";
-import { PRICING_CONFIG } from "../utils/pricing";
+import Image from "next/image";
+import styles from "../page.module.css";
+import Calculator from "../../components/Calculator";
+import StickyBar from "../../components/StickyBar";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
+import { PRICING_CONFIG } from "../../utils/pricing";
+import { getDictionary } from "../../i18n/get-dictionary";
+import type { Locale } from "../../i18n/config";
 
-export default function Home() {
+export default async function Home({ params }: { params: { lang: Locale } }) {
+  const dict = await getDictionary(params.lang);
+
   return (
     <div className={styles.wrapper}>
       {/* JSON-LD Schema */}
@@ -31,7 +37,7 @@ export default function Home() {
                   { "@type": "AdministrativeArea", "name": "Haute-Mauricie" }
                 ],
                 "priceRange": "$$",
-                "description": "golatuque n’est ni un Uber, ni un taxi. C’est un service professionnel de transport humain, local, simple et sécuritaire.",
+                "description": dict.meta.description,
                 "paymentAccepted": "Cash, Credit Card, Square",
                 "openingHoursSpecification": {
                   "@type": "OpeningHoursSpecification",
@@ -54,22 +60,33 @@ export default function Home() {
 
       {/* Header */}
       <header className={styles.header}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100%' }}>
+        <div className={`container ${styles.headerContainer}`}>
           <div className={styles.logo}>
-            go<span style={{ color: 'var(--primary)' }}>latuque</span>
+            <Image
+              src="/logo.svg"
+              alt="GOLATUQUE"
+              width={160}
+              height={50}
+              priority
+              style={{ height: 'auto', width: 'auto', maxHeight: '40px' }}
+            />
           </div>
 
           <nav className={styles.nav}>
-            <Link href="#services" className={styles.navLink}>Services</Link>
-            <Link href="#calculator-section" className={styles.navLink}>Tarifs</Link>
-            <Link href="#faq" className={styles.navLink}>Questions</Link>
+            <Link href="#services" className={styles.navLink}>{dict.nav.services}</Link>
+            <Link href="#calculator-section" className={styles.navLink}>{dict.nav.pricing}</Link>
+            <Link href="#faq" className={styles.navLink}>{dict.nav.faq}</Link>
           </nav>
 
-          <div className={styles.cta}>
-            <a href={`tel:${PRICING_CONFIG.phoneNumber}`} className="btn btn-primary">
-              <Phone size={18} style={{ marginRight: '8px' }} />
-              {PRICING_CONFIG.phoneNumberDisplay}
-            </a>
+          <div className={styles.navContainer}>
+            <LanguageSwitcher currentLang={params.lang} />
+
+            <div className={styles.cta}>
+              <a href={`tel:${PRICING_CONFIG.phoneNumber}`} className="btn btn-primary">
+                <Phone size={18} className={styles.iconSpace} />
+                {PRICING_CONFIG.phoneNumberDisplay}
+              </a>
+            </div>
           </div>
         </div>
       </header>
@@ -81,51 +98,48 @@ export default function Home() {
           <div className="container">
             <div className={styles.heroGrid}>
               <div className={styles.heroContent}>
-                <div className={styles.badge}>TRANSPORT OFFICIEL LA TUQUE</div>
+                <div className={styles.badge}>{dict.hero.badge}</div>
                 <h1 className={styles.heroTitle}>
-                  Plus qu'un taxi. <br />
-                  <span className="text-gradient">Une vraie solution.</span>
+                  {dict.hero.title_start} <br />
+                  <span className="text-gradient">{dict.hero.title_end}</span>
                 </h1>
                 <p className={styles.heroText}>
-                  <strong>golatuque</strong> n’est ni un Uber, ni un taxi. C’est un service professionnel de transport humain, simple et sécuritaire.
+                  {dict.hero.subtitle}
                 </p>
 
                 <div className={styles.heroButtons}>
                   <a href={`sms:${PRICING_CONFIG.phoneNumber}&body=Bonjour golatuque!`} className="btn btn-primary">
-                    <Smartphone size={18} style={{ marginRight: '8px' }} />
-                    Réserver par Texto
+                    <Smartphone size={18} className={styles.iconSpace} />
+                    {dict.hero.cta_sms}
                   </a>
                   <a href="#services" className="btn btn-secondary">
-                    Nos Services
+                    {dict.hero.cta_services}
                   </a>
                 </div>
 
                 <div className={styles.promiseBox}>
-                  <p>
-                    « Tu nous textes ou tu nous appelles. Tu réserves ou pas.
-                    <strong> Si on est disponibles, on vient te chercher.</strong> »
-                  </p>
+                  <p dangerouslySetInnerHTML={{ __html: dict.hero.promise }} />
                 </div>
 
                 <div className={styles.trustBadges}>
                   <div className={styles.trustItem}>
                     <CheckCircle size={16} color="var(--primary)" />
-                    <span>Légal</span>
+                    <span>{dict.hero.trust.legal}</span>
                   </div>
                   <div className={styles.trustItem}>
                     <CheckCircle size={16} color="var(--primary)" />
-                    <span>Sécuritaire</span>
+                    <span>{dict.hero.trust.safe}</span>
                   </div>
                   <div className={styles.trustItem}>
                     <CheckCircle size={16} color="var(--primary)" />
-                    <span>Paiement Square</span>
+                    <span>{dict.hero.trust.payment}</span>
                   </div>
                 </div>
               </div>
 
               {/* Calculator Widget */}
               <div id="calculator-section" className={styles.heroWidget}>
-                <Calculator />
+                <Calculator dict={dict.calculator} />
               </div>
             </div>
           </div>
@@ -134,32 +148,22 @@ export default function Home() {
         </section>
 
         {/* Pricing Transparency Section (Required for SEO) */}
-        <section className="section" style={{ background: 'var(--card)' }}>
+        <section className={`section ${styles.sectionDark}`}>
           <div className="container">
             <div className={styles.sectionHeader}>
-              <h2>Transparence Tarifaire</h2>
-              <p>Le prix dépend principalement de la distance et du temps de trajet.</p>
+              <h2>{dict.pricing.title}</h2>
+              <p>{dict.pricing.subtitle}</p>
             </div>
 
             <div className={styles.pricingTable}>
-              <div className={styles.tableRow}>
-                <span>1 km / 3 min</span>
-                <strong>≈ 9.50 $</strong>
-              </div>
-              <div className={styles.tableRow}>
-                <span>3 km / 7 min</span>
-                <strong>≈ 15.00 $</strong>
-              </div>
-              <div className={styles.tableRow}>
-                <span>5 km / 10 min</span>
-                <strong>≈ 20.00 $</strong>
-              </div>
-              <div className={styles.tableRow}>
-                <span>10 km / 18 min</span>
-                <strong>≈ 32.50 $</strong>
-              </div>
+              {dict.pricing.rows.map((row: any, i: number) => (
+                <div key={i} className={styles.tableRow}>
+                  <span>{row.label}</span>
+                  <strong>{row.price}</strong>
+                </div>
+              ))}
               <div className={styles.pricesNote}>
-                * Estimation indicative. Tarifs compétitifs pour La Tuque.
+                {dict.pricing.note}
               </div>
             </div>
           </div>
@@ -169,8 +173,8 @@ export default function Home() {
         <section id="services" className="section">
           <div className="container">
             <div className={styles.sectionHeader}>
-              <h2>Nos Services</h2>
-              <p>Une solution de transport adaptée à chaque besoin.</p>
+              <h2>{dict.services.title}</h2>
+              <p>{dict.services.subtitle}</p>
             </div>
 
             <div className={styles.grid}>
@@ -178,56 +182,50 @@ export default function Home() {
                 <div className={styles.iconBox}>
                   <Car size={28} />
                 </div>
-                <h3>Transport Humain</h3>
-                <p>Du point A au point B. Simple, rapide, sécuritaire. Pour vos rendez-vous, courses et sorties.</p>
+                <h3>{dict.services.items[0].title}</h3>
+                <p>{dict.services.items[0].desc}</p>
               </div>
 
               <div className={styles.card}>
                 <div className={styles.iconBox}>
                   <ShieldCheck size={28} />
                 </div>
-                <h3>Transport Travailleurs</h3>
-                <p>Pour les chantiers, les quarts de travail et les équipes. Fiable pour arriver à l'heure.</p>
+                <h3>{dict.services.items[1].title}</h3>
+                <p>{dict.services.items[1].desc}</p>
               </div>
 
               <div className={styles.card}>
                 <div className={styles.iconBox}>
                   <Package size={28} />
                 </div>
-                <h3>Petite Livraison</h3>
-                <p>Récupération de commande resto, paquets, documents ou commissions locales urgentes.</p>
+                <h3>{dict.services.items[2].title}</h3>
+                <p>{dict.services.items[2].desc}</p>
               </div>
 
               <div className={styles.card}>
                 <div className={styles.iconBox}>
                   <MapPin size={28} />
                 </div>
-                <h3>Transport Entreprises</h3>
-                <p>Solution pour Hydro-Québec, facteurs, et visiteurs professionnels. Facturation simplifiée.</p>
+                <h3>{dict.services.items[3].title}</h3>
+                <p>{dict.services.items[3].desc}</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section id="faq" className="section" style={{ background: 'var(--card)' }}>
+        <section id="faq" className={`section ${styles.sectionDark}`}>
           <div className="container">
             <div className={styles.sectionHeader}>
-              <h2>Questions Fréquentes</h2>
+              <h2>{dict.faq.title}</h2>
             </div>
             <div className={styles.faqGrid}>
-              <details className={styles.faqItem}>
-                <summary>Est-ce que c'est un taxi ou un Uber ?</summary>
-                <p>Non. <strong>golatuque</strong> n’est ni un Uber, ni un taxi. C’est un service professionnel de transport humain autorisé, géré localement à La Tuque.</p>
-              </details>
-              <details className={styles.faqItem}>
-                <summary>Comment je paie ?</summary>
-                <p>Le paiement se fait <strong>en personne</strong> via Square. Nous acceptons débit, crédit et argent comptant.</p>
-              </details>
-              <details className={styles.faqItem}>
-                <summary>Les chauffeurs sont-ils autorisés ?</summary>
-                <p>Oui. Tous nos transports sont effectués par des chauffeurs détenant les permis de transport autorisés et les assurances requises.</p>
-              </details>
+              {dict.faq.items.map((item: any, i: number) => (
+                <details key={i} className={styles.faqItem}>
+                  <summary>{item.q}</summary>
+                  <p dangerouslySetInnerHTML={{ __html: item.a }} />
+                </details>
+              ))}
             </div>
           </div>
         </section>
@@ -237,23 +235,29 @@ export default function Home() {
           <div className="container">
             <div className={styles.footerContent}>
               <div className={styles.logo}>
-                go<span style={{ color: 'var(--primary)' }}>latuque</span>
+                <Image
+                  src="/logo.svg"
+                  alt="GOLATUQUE"
+                  width={200}
+                  height={60}
+                  style={{ height: 'auto', width: 'auto', maxHeight: '50px' }}
+                />
               </div>
               <p className={styles.footerText}>
-                © {new Date().getFullYear()} golatuque. Service professionnel de transport humain à La Tuque.<br />
+                {dict.footer.rights.replace('{year}', String(new Date().getFullYear()))}<br />
                 514-677-5200
               </p>
               <div className={styles.footerLinks}>
                 {/* SEO Links (Hidden visually but present for crawlers/structure) */}
-                <Link href="/transport-la-tuque" style={{ opacity: 0.6, fontSize: '0.8rem' }}>Transport La Tuque</Link>
-                <Link href="/livraison-locale-la-tuque" style={{ opacity: 0.6, fontSize: '0.8rem' }}>Livraison La Tuque</Link>
+                <Link href="/transport-la-tuque" className={styles.footerLink}>{dict.footer.link_transport}</Link>
+                <Link href="/livraison-locale-la-tuque" className={styles.footerLink}>{dict.footer.link_delivery}</Link>
               </div>
             </div>
           </div>
         </footer>
       </main>
 
-      <StickyBar />
+      <StickyBar dict={dict.sticky} />
     </div>
   );
 }

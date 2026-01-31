@@ -1,0 +1,40 @@
+.switcher {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 4px;
+    gap: 2px;
+}
+
+.langBtn {
+    background: transparent;
+    border: none;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 44px;
+    /* Touch target hint */
+}
+
+.langBtn:hover {
+    color: var(--foreground);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.active {
+    background: var(--primary);
+    color: #000;
+    /* Contrast on primary */
+}
+
+.active:hover {
+    background: var(--primary);
+    /* Keep active state */
+    opacity: 0.9;
+}

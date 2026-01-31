@@ -36,6 +36,7 @@
 /* Universal Reset & Base */
 html {
   scroll-behavior: smooth;
+  text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   /* Prevent font scaling on orientation change */
 }

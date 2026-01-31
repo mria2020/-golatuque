@@ -17,7 +17,7 @@ type RouteResult = {
     durationMin: number;
 };
 
-export default function Calculator() {
+export default function Calculator({ dict }: { dict: any }) {
     const [pickup, setPickup] = useState("");
     const [dropoff, setDropoff] = useState("");
     const [pickupCoords, setPickupCoords] = useState<LocationResult | null>(null);
@@ -150,11 +150,11 @@ export default function Calculator() {
                 setLoading(false);
             } catch (e) {
                 setLoading(false);
-                setError("Erreur de localisation");
+                setError(dict.geo_error);
             }
         }, () => {
             setLoading(false);
-            setError("Accès à la position refusé");
+            setError(dict.geo_access_denied);
         });
     };
 
@@ -175,24 +175,24 @@ export default function Calculator() {
 
     const generateSMS = () => {
         if (!result) return "";
-        const msg = `Bonjour golatuque!
-Service: ${service} (${period})
-De: ${pickup}
-À: ${dropoff}
-Est: ${result.price.toFixed(2)}$ (${result.distance.toFixed(1)}km)
-Dispo?`;
+        const msg = `${dict.sms_intro}
+${dict.sms_labels.service}: ${service} (${period})
+${dict.sms_labels.from}: ${pickup}
+${dict.sms_labels.to}: ${dropoff}
+${dict.sms_labels.est}: ${result.price.toFixed(2)}$ (${result.distance.toFixed(1)}km)
+${dict.sms_labels.available}`;
         return `sms:${PRICING_CONFIG.phoneNumber}&body=${encodeURIComponent(msg)}`;
     };
 
     return (
         <div className={styles.calculatorCard}>
             <div className={styles.header}>
-                <h3>Estimer votre trajet</h3>
+                <h3>{dict.title}</h3>
                 <div className={styles.headerActions}>
-                    <button onClick={handleReset} className={styles.resetBtn} title="Réinitialiser">
-                        <RotateCcw size={14} style={{ marginRight: 4 }} /> Reset
+                    <button onClick={handleReset} className={styles.resetBtn} title={dict.reset}>
+                        <RotateCcw size={14} className={styles.resetIcon} /> {dict.reset}
                     </button>
-                    <span className={styles.badge}>Outil 24/7</span>
+                    <span className={styles.badge}>{dict.badge}</span>
                 </div>
             </div>
 
@@ -209,7 +209,7 @@ Dispo?`;
                     <MapPin size={20} className={styles.icon} />
                     <input
                         type="text"
-                        placeholder="Adresse de départ"
+                        placeholder={dict.pickup_placeholder}
                         value={pickup}
                         onChange={(e) => { setPickup(e.target.value); setActiveField('pickup'); }}
                         className={styles.input}
@@ -218,12 +218,12 @@ Dispo?`;
                         <button
                             onClick={() => { setPickup(""); setPickupCoords(null); }}
                             className={styles.clearBtn}
-                            title="Effacer"
+                            title={dict.clear_btn_title}
                         >
                             <X size={16} />
                         </button>
                     )}
-                    <button onClick={useCurrentLocation} className={styles.geoBtn} title="Ma position">
+                    <button onClick={useCurrentLocation} className={styles.geoBtn} title={dict.my_loc_btn_title}>
                         <Navigation size={16} />
                     </button>
 
@@ -240,7 +240,7 @@ Dispo?`;
                     <CheckCircle size={20} className={styles.icon} />
                     <input
                         type="text"
-                        placeholder="Destination"
+                        placeholder={dict.dropoff_placeholder}
                         value={dropoff}
                         onChange={(e) => { setDropoff(e.target.value); setActiveField('dropoff'); }}
                         className={styles.input}
@@ -249,7 +249,7 @@ Dispo?`;
                         <button
                             onClick={() => { setDropoff(""); setDropoffCoords(null); }}
                             className={styles.clearBtn}
-                            title="Effacer"
+                            title={dict.clear_btn_title}
                         >
                             <X size={16} />
                         </button>
@@ -265,16 +265,26 @@ Dispo?`;
             </div>
 
             <div className={styles.controls}>
-                <select value={service} onChange={(e: any) => setService(e.target.value)} className={styles.select}>
-                    <option value="personne">Transport Personne</option>
-                    <option value="travailleur">Travailleur</option>
-                    <option value="livraison">Livraison</option>
-                    <option value="entreprise">Entreprise</option>
+                <select
+                    aria-label={dict.service_label}
+                    value={service}
+                    onChange={(e: any) => setService(e.target.value)}
+                    className={styles.select}
+                >
+                    <option value="personne">{dict.services.personne}</option>
+                    <option value="travailleur">{dict.services.travailleur}</option>
+                    <option value="livraison">{dict.services.livraison}</option>
+                    <option value="entreprise">{dict.services.entreprise}</option>
                 </select>
-                <select value={period} onChange={(e: any) => setPeriod(e.target.value)} className={styles.select}>
-                    <option value="standard">Standard</option>
-                    <option value="soir">Soir (18h+)</option>
-                    <option value="nuit">Nuit (23h+)</option>
+                <select
+                    aria-label={dict.period_label}
+                    value={period}
+                    onChange={(e: any) => setPeriod(e.target.value)}
+                    className={styles.select}
+                >
+                    <option value="standard">{dict.periods.standard}</option>
+                    <option value="soir">{dict.periods.soir}</option>
+                    <option value="nuit">{dict.periods.nuit}</option>
                 </select>
             </div>
 
@@ -289,28 +299,28 @@ Dispo?`;
                 <div className={styles.result}>
                     <div className={styles.resultDetails}>
                         <div className={styles.kpi}>
-                            <span>Distance</span>
+                            <span>{dict.result_distance}</span>
                             <strong>{result.distance.toFixed(1)} km</strong>
                         </div>
                         <div className={styles.kpi}>
-                            <span>Durée</span>
+                            <span>{dict.result_duration}</span>
                             <strong>{Math.round(result.duration)} min</strong>
                         </div>
                         <div className={`${styles.kpi} ${styles.priceKpi}`}>
-                            <span>Estimation</span>
+                            <span>{dict.result_estimate}</span>
                             <strong>{result.price.toFixed(2)}$</strong>
                         </div>
                     </div>
 
                     <div className={styles.actions}>
-                        <a href={generateSMS()} className="btn btn-primary" style={{ flex: 1, fontSize: '0.9rem' }}>
-                            Réserver (Texto)
+                        <a href={generateSMS()} className={`btn btn-primary ${styles.actionButton}`}>
+                            {dict.cta_book}
                         </a>
-                        <a href={`tel:${PRICING_CONFIG.phoneNumber}`} className="btn btn-secondary" style={{ flex: 1, fontSize: '0.9rem' }}>
-                            Appeler
+                        <a href={`tel:${PRICING_CONFIG.phoneNumber}`} className={`btn btn-secondary ${styles.actionButton}`}>
+                            {dict.cta_call}
                         </a>
                     </div>
-                    <p className={styles.disclaimer}>*Prix estimé à titre indicatif. Varie selon trafic/attente.</p>
+                    <p className={styles.disclaimer}>{dict.disclaimer}</p>
                 </div>
             )}
 
@@ -318,16 +328,15 @@ Dispo?`;
                 <button
                     onClick={handleCalculate}
                     disabled={loading}
-                    className="btn btn-primary btn-full"
-                    style={{ marginTop: '1rem' }}
+                    className={`btn btn-primary btn-full ${styles.calcButton}`}
                 >
                     {loading ? (
                         <>
-                            <Loader2 className={styles.spin} size={20} style={{ marginRight: '8px' }} />
-                            Calcul...
+                            <Loader2 className={`${styles.spin} ${styles.spinIcon}`} size={20} />
+                            {dict.button_calculating}
                         </>
                     ) : (
-                        "Calculer le prix"
+                        dict.button_calc
                     )}
                 </button>
             )}

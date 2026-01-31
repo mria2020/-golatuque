@@ -1,0 +1,140 @@
+{
+    "meta": {
+        "title": "GOLATUQUE - Official Transport of La Tuque",
+        "description": "The #1 transport service in La Tuque. Taxi, Shuttle, Delivery. Available 24/7. Book now for fast and reliable service."
+    },
+    "nav": {
+        "services": "Services",
+        "pricing": "Pricing",
+        "faq": "FAQ"
+    },
+    "hero": {
+        "badge": "OFFICIAL TRANSPORT LA TUQUE",
+        "title_start": "More than a taxi.",
+        "title_end": "A real solution.",
+        "subtitle": "golatuque is neither an Uber nor a taxi. It is a professional, simple, and safe human transport service.",
+        "cta_sms": "Book by Text",
+        "cta_services": "Our Services",
+        "promise": "« Text us or call us. Book or not. <strong>If we are available, we will pick you up.</strong> »",
+        "trust": {
+            "legal": "Legal",
+            "safe": "Safe",
+            "payment": "Square Payment"
+        }
+    },
+    "calculator": {
+        "title": "Estimate your trip",
+        "reset": "Reset",
+        "badge": "24/7 Tool",
+        "pickup_placeholder": "Pickup address",
+        "dropoff_placeholder": "Destination",
+        "button_calc": "Calculate price",
+        "button_calculating": "Calculating...",
+        "error_loc": "Please select addresses from the list.",
+        "error_route": "Unable to calculate precise route.",
+        "geo_error": "Geolocation not supported",
+        "result_distance": "Distance",
+        "result_duration": "Duration",
+        "result_estimate": "Estimate",
+        "cta_book": "Book (Text)",
+        "cta_call": "Call",
+        "disclaimer": "*Estimated price for indication only. Varies by traffic/waiting.",
+        "service_label": "Service Type",
+        "period_label": "Period",
+        "services": {
+            "personne": "Personal Transport",
+            "travailleur": "Worker",
+            "livraison": "Delivery",
+            "entreprise": "Business"
+        },
+        "periods": {
+            "standard": "Standard",
+            "soir": "Evening (6pm+)",
+            "nuit": "Night (11pm+)"
+        },
+        "clear_btn_title": "Clear",
+        "my_loc_btn_title": "My location",
+        "geo_access_denied": "Location access denied",
+        "sms_intro": "Hello golatuque!",
+        "sms_labels": {
+            "service": "Service",
+            "from": "From",
+            "to": "To",
+            "est": "Est",
+            "available": "Available?"
+        }
+    },
+    "pricing": {
+        "title": "Pricing Transparency",
+        "subtitle": "Price depends mainly on distance and travel time.",
+        "rows": [
+            {
+                "label": "1 km / 3 min",
+                "price": "≈ $9.50"
+            },
+            {
+                "label": "3 km / 7 min",
+                "price": "≈ $15.00"
+            },
+            {
+                "label": "5 km / 10 min",
+                "price": "≈ $20.00"
+            },
+            {
+                "label": "10 km / 18 min",
+                "price": "≈ $32.50"
+            }
+        ],
+        "note": "* Indicative estimate. Competitive rates for La Tuque."
+    },
+    "services": {
+        "title": "Our Services",
+        "subtitle": "A transport solution adapted to every need.",
+        "items": [
+            {
+                "title": "Personal Transport",
+                "desc": "From point A to point B. Simple, fast, safe. For your appointments, shopping, and outings."
+            },
+            {
+                "title": "Worker Transport",
+                "desc": "For construction sites, shifts, and teams. Reliable to arrive on time."
+            },
+            {
+                "title": "Small Delivery",
+                "desc": "Pickup of restaurant orders, packages, documents, or urgent local errands."
+            },
+            {
+                "title": "Corporate Transport",
+                "desc": "Solution for Hydro-Québec, mail carriers, and professional visitors. Simplified billing."
+            }
+        ]
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+            {
+                "q": "Is this a taxi or Uber?",
+                "a": "No. <strong>golatuque</strong> is neither an Uber nor a taxi. It is a professionally authorized human transport service, managed locally in La Tuque."
+            },
+            {
+                "q": "How do I pay?",
+                "a": "Payment is made <strong>in person</strong> via Square. We accept debit, credit, and cash."
+            },
+            {
+                "q": "Are drivers authorized?",
+                "a": "Yes. All our transports are performed by drivers holding authorized transport permits and required insurance."
+            }
+        ]
+    },
+    "footer": {
+        "rights": "© {year} golatuque. Professional human transport service in La Tuque.",
+        "link_transport": "Transport La Tuque",
+        "link_delivery": "Delivery La Tuque"
+    },
+    "sticky": {
+        "call": "Call",
+        "text": "Text",
+        "price": "Price",
+        "sms_body": "Hello golatuque! I would like to book a ride."
+    }
+}

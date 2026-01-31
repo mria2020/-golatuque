@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Home from "../page";
+import type { Locale } from "../../../i18n/config";
 
 export const metadata: Metadata = {
     title: "Transport La Tuque - Alternative Taxi & Navette | golatuque",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     }
 };
 
-export default function TransportPage() {
-    return <Home />;
+export default function TransportPage({ params }: { params: { lang: Locale } }) {
+    // @ts-expect-error Async Server Component
+    return <Home params={params} />;
 }

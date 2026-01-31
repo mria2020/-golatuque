@@ -271,3 +271,21 @@
         transform: rotate(360deg);
     }
 }
+
+/* New Utilites */
+.spinIcon {
+    margin-right: 8px;
+}
+
+.resetIcon {
+    margin-right: 4px;
+}
+
+.actionButton {
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.calcButton {
+    margin-top: 1rem;
+}

@@ -1,0 +1,140 @@
+{
+    "meta": {
+        "title": "GOLATUQUE - Transport Officiel La Tuque",
+        "description": "Kice mitcetowipanak e ici matcehotcik La Tuque. Taxi, Navette, Livraison. 24/7. Masinahike."
+    },
+    "nav": {
+        "services": "Kekwan",
+        "pricing": "Tipahikan",
+        "faq": "Kwe"
+    },
+    "hero": {
+        "badge": "TRANSPORT OFFICIEL LA TUQUE",
+        "title_start": "Eka tepirak taxi.",
+        "title_end": "Tapwe ki witcihikon.",
+        "subtitle": "golatuque nama Uber, nama taxi. Micta miro ocitakaniwon kitci ki matcehotcik awik, kwayask acitc eka kitci kotsita.",
+        "cta_sms": "Masinahike (Texto)",
+        "cta_services": "Kekwan ke ocitayak",
+        "promise": "« Ki pe masinahikewin kekotc ki pe aimihowin. Kitci nta matcehotcik kekotc namieu. <strong>E ici takokike, ni ka pe otitin.</strong> »",
+        "trust": {
+            "legal": "Kwayask",
+            "safe": "Kana",
+            "payment": "Tipahikan Square"
+        }
+    },
+    "calculator": {
+        "title": "Mamitonerita ketcin",
+        "reset": "Mescitan",
+        "badge": "Outil 24/7",
+        "pickup_placeholder": "Tante ke otitin",
+        "dropoff_placeholder": "Tante ke icayin",
+        "button_calc": "Akita ketcin",
+        "button_calculating": "Akittam...",
+        "error_loc": "Wectatc ka ici otitin",
+        "error_route": "Nama kackihew kitci akitak.",
+        "geo_error": "Map nama tokan",
+        "result_distance": "Tipahikan",
+        "result_duration": "Kecpin",
+        "result_estimate": "Ketcin",
+        "cta_book": "Masinahike (Texto)",
+        "cta_call": "Aimihowin",
+        "disclaimer": "*Ketcin e ki akitakaniwok. Nama tapwe anihe.",
+        "service_label": "Kekwan",
+        "period_label": "Tipahikan",
+        "services": {
+            "personne": "Awik matcehotcik",
+            "travailleur": "Ototamiw",
+            "livraison": "Pa atowewin",
+            "entreprise": "Ka otamiwotcik"
+        },
+        "periods": {
+            "standard": "Mekwa",
+            "soir": "Otakocin (18h+)",
+            "nuit": "Tipiskwa (23h+)"
+        },
+        "clear_btn_title": "Kasi",
+        "my_loc_btn_title": "Nita",
+        "geo_access_denied": "Nita nama tokan",
+        "sms_intro": "Kwe golatuque!",
+        "sms_labels": {
+            "service": "Kekwan",
+            "from": "Ote",
+            "to": "Nte",
+            "est": "Tipahikan",
+            "available": "Takuwaw?"
+        }
+    },
+    "pricing": {
+        "title": "Ketcin Tipahikan",
+        "subtitle": "Ketcin e iciein acik tipahikan.",
+        "rows": [
+            {
+                "label": "1 km / 3 min",
+                "price": "≈ 9.50 $"
+            },
+            {
+                "label": "3 km / 7 min",
+                "price": "≈ 15.00 $"
+            },
+            {
+                "label": "5 km / 10 min",
+                "price": "≈ 20.00 $"
+            },
+            {
+                "label": "10 km / 18 min",
+                "price": "≈ 32.50 $"
+            }
+        ],
+        "note": "* Mamitoneritam tapwe."
+    },
+    "services": {
+        "title": "Kekwan ke ocitayak",
+        "subtitle": "Witcihiwewin e ici takok.",
+        "items": [
+            {
+                "title": "Awik matcehotcik",
+                "desc": "Ote nte. Wec, kwayask, kana. Kitci ki matcehotcik."
+            },
+            {
+                "title": "Ototamiw",
+                "desc": "Ka otamiwotcik. Pa matcehwakaniwiw."
+            },
+            {
+                "title": "Pa atowewin",
+                "desc": "Mekwatc kekwan, masinahikan."
+            },
+            {
+                "title": "Ka otamiwotcik Kice",
+                "desc": "Witcihiwewin Hydro-Quebec. Kwayask tipahikan."
+            }
+        ]
+    },
+    "faq": {
+        "title": "Kwe",
+        "items": [
+            {
+                "q": "Taxi nte Uber?",
+                "a": "Namieu. <strong>golatuque</strong> nama Uber, nama taxi. Kwayask matcehotcik ote La Tuque."
+            },
+            {
+                "q": "Tan ke Totaman ?",
+                "a": "Tipahikan <strong>Square</strong>. Debit, Credit, Cowia."
+            },
+            {
+                "q": "Permis ?",
+                "a": "Tapwe. Kwayask permis."
+            }
+        ]
+    },
+    "footer": {
+        "rights": "© {year} golatuque. Service professionnel de transport humain à La Tuque.",
+        "link_transport": "Matcehotcik La Tuque",
+        "link_delivery": "Livraison La Tuque"
+    },
+    "sticky": {
+        "call": "Aimihowin",
+        "text": "Texto",
+        "price": "Tipahikan",
+        "sms_body": "Kwe golatuque! Ni wi matcehon."
+    }
+}

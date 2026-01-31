@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "GOLATUQUE - Transport Officiel de La Tuque",
+    "description": "Le service de transport #1 à La Tuque. Taxi, Navette, Livraison. Disponible 24/7. Réservez maintenant."
+  },
+  "nav": {
+    "services": "Services",
+    "pricing": "Tarifs",
+    "faq": "Questions"
+  },
+  "hero": {
+    "badge": "TRANSPORT OFFICIEL LA TUQUE",
+    "title_start": "Plus qu'un taxi.",
+    "title_end": "Une vraie solution.",
+    "subtitle": "golatuque n’est ni un Uber, ni un taxi. C’est un service professionnel de transport humain, simple et sécuritaire.",
+    "cta_sms": "Réserver par Texto",
+    "cta_services": "Nos Services",
+    "promise": "« Tu nous textes ou tu nous appelles. Tu réserves ou pas. <strong>Si on est disponibles, on vient te chercher.</strong> »",
+    "trust": {
+      "legal": "Légal",
+      "safe": "Sécuritaire",
+      "payment": "Paiement Square"
+    }
+  },
+  "calculator": {
+    "title": "Estimer votre trajet",
+    "reset": "Reset",
+    "badge": "Outil 24/7",
+    "pickup_placeholder": "Adresse de départ",
+    "dropoff_placeholder": "Destination",
+    "button_calc": "Calculer le prix",
+    "button_calculating": "Calcul...",
+    "error_loc": "Veuillez sélectionner les adresses dans la liste.",
+    "error_route": "Impossible de calculer l'itinéraire précis.",
+    "geo_error": "Géolocalisation non supportée",
+    "result_distance": "Distance",
+    "result_duration": "Durée",
+    "result_estimate": "Estimation",
+    "cta_book": "Réserver (Texto)",
+    "cta_call": "Appeler",
+    "disclaimer": "*Prix estimé à titre indicatif. Varie selon trafic/attente.",
+    "service_label": "Type de service",
+    "period_label": "Période",
+    "services": {
+      "personne": "Transport Personne",
+      "travailleur": "Travailleur",
+      "livraison": "Livraison",
+      "entreprise": "Entreprise"
+    },
+    "periods": {
+      "standard": "Standard",
+      "soir": "Soir (18h+)",
+      "nuit": "Nuit (23h+)"
+    },
+    "clear_btn_title": "Effacer",
+    "my_loc_btn_title": "Ma position",
+    "geo_access_denied": "Accès à la position refusé",
+    "sms_intro": "Bonjour golatuque!",
+    "sms_labels": {
+      "service": "Service",
+      "from": "De",
+      "to": "À",
+      "est": "Est",
+      "available": "Dispo?"
+    }
+  },
+  "pricing": {
+    "title": "Transparence Tarifaire",
+    "subtitle": "Le prix dépend principalement de la distance et du temps de trajet.",
+    "rows": [
+      {
+        "label": "1 km / 3 min",
+        "price": "≈ 9.50 $"
+      },
+      {
+        "label": "3 km / 7 min",
+        "price": "≈ 15.00 $"
+      },
+      {
+        "label": "5 km / 10 min",
+        "price": "≈ 20.00 $"
+      },
+      {
+        "label": "10 km / 18 min",
+        "price": "≈ 32.50 $"
+      }
+    ],
+    "note": "* Estimation indicative. Tarifs compétitifs pour La Tuque."
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Une solution de transport adaptée à chaque besoin.",
+    "items": [
+      {
+        "title": "Transport Humain",
+        "desc": "Du point A au point B. Simple, rapide, sécuritaire. Pour vos rendez-vous, courses et sorties."
+      },
+      {
+        "title": "Transport Travailleurs",
+        "desc": "Pour les chantiers, les quarts de travail et les équipes. Fiable pour arriver à l'heure."
+      },
+      {
+        "title": "Petite Livraison",
+        "desc": "Récupération de commande resto, paquets, documents ou commissions locales urgentes."
+      },
+      {
+        "title": "Transport Entreprises",
+        "desc": "Solution pour Hydro-Québec, facteurs, et visiteurs professionnels. Facturation simplifiée."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "items": [
+      {
+        "q": "Est-ce que c'est un taxi ou un Uber ?",
+        "a": "Non. <strong>golatuque</strong> n’est ni un Uber, ni un taxi. C’est un service professionnel de transport humain autorisé, géré localement à La Tuque."
+      },
+      {
+        "q": "Comment je paie ?",
+        "a": "Le paiement se fait <strong>en personne</strong> via Square. Nous acceptons débit, crédit et argent comptant."
+      },
+      {
+        "q": "Les chauffeurs sont-ils autorisés ?",
+        "a": "Oui. Tous nos transports sont effectués par des chauffeurs détenant les permis de transport autorisés et les assurances requises."
+      }
+    ]
+  },
+  "footer": {
+    "rights": "© {year} golatuque. Service professionnel de transport humain à La Tuque.",
+    "link_transport": "Transport La Tuque",
+    "link_delivery": "Livraison La Tuque"
+  },
+  "sticky": {
+    "call": "Appeler",
+    "text": "Texto",
+    "price": "Prix",
+    "sms_body": "Bonjour golatuque! Je voudrais réserver un transport."
+  }
+}
