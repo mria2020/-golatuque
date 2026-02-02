@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 import Link from "next/link";
 import { Locale } from "../../../i18n/config";
 
 export default function CalculatorPage({
-    params: { lang },
+    params,
 }: {
-    params: { lang: Locale };
+    params: Promise<{ lang: Locale }>;
 }) {
+    const { lang } = use(params);
     const [tripType, setTripType] = useState<'one-way' | 'round-trip'>('one-way');
 
     return (

@@ -3,10 +3,11 @@ import { Locale } from "../../i18n/config";
 import Link from "next/link";
 
 export default async function Home({
-  params: { lang },
+  params,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }) {
+  const { lang } = await params;
   const dict = await getDictionary(lang);
 
   return (

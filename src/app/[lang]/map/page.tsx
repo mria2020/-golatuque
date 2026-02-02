@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 import Link from "next/link";
 import { Locale } from "../../../i18n/config";
 
 export default function MapPage({
-    params: { lang },
+    params,
 }: {
-    params: { lang: Locale };
+    params: Promise<{ lang: Locale }>;
 }) {
+    const { lang } = use(params);
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
 
     // In a real app, this would be draggable. 

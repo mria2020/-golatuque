@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     }
 };
 
-export default function TransportPage({ params }: { params: { lang: Locale } }) {
-    // @ts-expect-error Async Server Component
+export default async function TransportPage({ params }: { params: Promise<{ lang: Locale }> }) {
     return <Home params={params} />;
 }
